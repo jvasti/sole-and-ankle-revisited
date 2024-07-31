@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { COLORS } from '../../constants';
+import { COLORS, BREAKPOINTS } from "../../constants";
 
-import SearchInput from '../SearchInput';
-import UnstyledButton from '../UnstyledButton';
-import Icon from '../Icon';
+import SearchInput from "../SearchInput";
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
 
 const SuperHeader = () => {
   return (
@@ -32,6 +32,14 @@ const Wrapper = styled.div`
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
+
+  @media (max-width: ${BREAKPOINTS.tabletMin}rem) {
+    height: 0px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    border-bottom: 4px solid ${COLORS.gray[900]};
+  }
 `;
 
 const MarketingMessage = styled.span`

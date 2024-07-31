@@ -1,10 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { COLORS, WEIGHTS } from '../../constants';
-import Logo from '../Logo';
-import SuperHeader from '../SuperHeader';
-import MobileMenu from '../MobileMenu';
+import { COLORS, WEIGHTS, BREAKPOINTS } from "../../constants";
+import Logo from "../Logo";
+import SuperHeader from "../SuperHeader";
+import MobileMenu from "../MobileMenu";
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -29,7 +31,17 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side />
+        <IconRow>
+          <UnstyledButton>
+            <Icon id="shopping-bag" strokeWidth={2} />
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id="search" strokeWidth={2} />
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+            <Icon id="menu" strokeWidth={2} />
+          </UnstyledButton>
+        </IconRow>
       </MainHeader>
 
       <MobileMenu
@@ -46,12 +58,36 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media (max-width: ${BREAKPOINTS.tabletMin}rem) {
+    justify-content: space-between;
+    padding: 18px 16px;
+  }
+
+  @media (max-width: ${BREAKPOINTS.phoneMin}rem) {
+    align-items: center;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media (max-width: ${BREAKPOINTS.tabletMin}rem) {
+    display: none;
+  }
+`;
+
+const IconRow = styled.div`
+  display: none;
+
+  @media (max-width: ${BREAKPOINTS.tabletMin}rem) {
+    display: flex;
+    margin-left: 100px;
+    flex: 0 10 130px;
+    justify-content: space-between;
+  }
 `;
 
 const Side = styled.div`
