@@ -75,13 +75,13 @@ const Categories = styled.nav`
     text-decoration: none;
     font-family: "Raleway";
     font-size: calc((18 / 16) * 1rem);
-    color: ${COLORS.gray[900]};
+    color: var(--color-gray-900);
     text-transform: uppercase;
     font-weight: 600;
   }
 
   & a:hover {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
@@ -95,7 +95,7 @@ const Footer = styled.footer`
   & a {
     text-decoration: none;
     font-family: "Raleway";
-    color: ${COLORS.gray[700]};
+    color: var(--color-gray-700);
     font-weight: 500;
     font-size: calc((14 / 16) * 1rem);
   }
